@@ -7,6 +7,9 @@ import com.ziaulhoque.memento.History;
 import com.ziaulhoque.state.Brush;
 import com.ziaulhoque.state.Canvas;
 import com.ziaulhoque.strategy.*;
+import com.ziaulhoque.template.GenerateReportTask;
+import com.ziaulhoque.template.Task;
+import com.ziaulhoque.template.TransferMoneyTask;
 
 public class Main {
 
@@ -58,10 +61,19 @@ public class Main {
         imageStorage.store("name2",new PngCompressor(),new BlurFilter());
     }
 
+    static void template(){
+        Task task = new TransferMoneyTask();
+        task.execute();
+        task = new GenerateReportTask();
+        task.execute();
+
+    }
+
     public static void main(String[] args) {
         memento();
         state();
         iterator();
         strategy();
+        template();
     }
 }
