@@ -1,5 +1,12 @@
 package com.ziaulhoque;
 
+import com.ziaulhoque.command.AddCustomerCommand;
+import com.ziaulhoque.command.BnWCommand;
+import com.ziaulhoque.command.CustomerService;
+import com.ziaulhoque.command.ResizeCommand;
+import com.ziaulhoque.command.fx.Button;
+import com.ziaulhoque.command.fx.Command;
+import com.ziaulhoque.command.fx.CompositeCommand;
 import com.ziaulhoque.iterator.BrowseHistory;
 import com.ziaulhoque.iterator.Iterator;
 import com.ziaulhoque.memento.Editor;
@@ -66,6 +73,18 @@ public class Main {
         task.execute();
         task = new GenerateReportTask();
         task.execute();
+    }
+
+    static void command(){
+        CustomerService customerService = new CustomerService();
+        Command command = new AddCustomerCommand(customerService);
+        Button button = new Button(command);
+        button.click();
+        //composite command
+        CompositeCommand compositeCommand = new CompositeCommand();
+        compositeCommand.add(new ResizeCommand());
+        compositeCommand.add(new BnWCommand());
+        compositeCommand.execute();
 
     }
 
@@ -75,5 +94,6 @@ public class Main {
         iterator();
         strategy();
         template();
+        command();
     }
 }
