@@ -6,7 +6,7 @@ import com.ziaulhoque.command.CustomerService;
 import com.ziaulhoque.command.ResizeCommand;
 import com.ziaulhoque.command.fx.Button;
 import com.ziaulhoque.command.fx.Command;
-import com.ziaulhoque.command.fx.CompositeCommand;
+import com.ziaulhoque.command.CompositeCommand;
 import com.ziaulhoque.iterator.BrowseHistory;
 import com.ziaulhoque.iterator.Iterator;
 import com.ziaulhoque.memento.Editor;

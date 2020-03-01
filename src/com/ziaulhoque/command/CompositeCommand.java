@@ -1,4 +1,6 @@
-package com.ziaulhoque.command.fx;
+package com.ziaulhoque.command;
+
+import com.ziaulhoque.command.fx.Command;
 
 import java.util.ArrayList;
 import java.util.List;
