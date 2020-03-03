@@ -11,6 +11,9 @@ import com.ziaulhoque.iterator.BrowseHistory;
 import com.ziaulhoque.iterator.Iterator;
 import com.ziaulhoque.memento.Editor;
 import com.ziaulhoque.memento.History;
+import com.ziaulhoque.observer.Chart;
+import com.ziaulhoque.observer.DataSource;
+import com.ziaulhoque.observer.SpreadSheet;
 import com.ziaulhoque.state.Brush;
 import com.ziaulhoque.state.Canvas;
 import com.ziaulhoque.strategy.*;
@@ -88,6 +91,19 @@ public class Main {
 
     }
 
+    static void observer(){
+        DataSource dataSource = new DataSource();
+
+        SpreadSheet sheet1 = new SpreadSheet();
+        SpreadSheet sheet2 = new SpreadSheet();
+        Chart chart = new Chart();
+
+        dataSource.addObserver(sheet1);
+        dataSource.addObserver(sheet2);
+        dataSource.addObserver(chart);
+        dataSource.setValue(5);
+    }
+
     public static void main(String[] args) {
         memento();
         state();
@@ -95,5 +111,6 @@ public class Main {
         strategy();
         template();
         command();
+        observer();
     }
 }
