@@ -9,6 +9,8 @@ import com.ziaulhoque.command.fx.Command;
 import com.ziaulhoque.command.CompositeCommand;
 import com.ziaulhoque.iterator.BrowseHistory;
 import com.ziaulhoque.iterator.Iterator;
+import com.ziaulhoque.mediator.ArticlesDialogBox;
+import com.ziaulhoque.mediator.DialogBox;
 import com.ziaulhoque.memento.Editor;
 import com.ziaulhoque.memento.History;
 import com.ziaulhoque.observer.Chart;
@@ -104,6 +106,12 @@ public class Main {
         dataSource.setValue(5);
     }
 
+    static void mediator(){
+        DialogBox dialog = new ArticlesDialogBox();
+        dialog.simulateUserInteraction();
+
+    }
+
     public static void main(String[] args) {
         memento();
         state();
@@ -112,5 +120,6 @@ public class Main {
         template();
         command();
         observer();
+        mediator();
     }
 }
